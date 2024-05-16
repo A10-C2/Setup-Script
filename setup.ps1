@@ -18,7 +18,7 @@ Write-Host "Installing Adobe Reader" -ForegroundColor Gray -BackgroundColor Blue
 winget install Adobe.Acrobat.Reader.64-bit -h --accept-package-agreements --accept-source-agreements
 
 # Install Citrix 
-Write-Host install "Installing Office 365" -ForegroundColor Gray -BackgroundColor Blue
+Write-Host install "Citrix Workspace" -ForegroundColor Gray -BackgroundColor Blue
 winget install XPFCG3278HX4X9 -h --accept-package-agreements --accept-source-agreements
 
 # Install O365 App & Office Suite
