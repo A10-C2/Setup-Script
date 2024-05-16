@@ -4,10 +4,10 @@ Write-Host "Serial Number: $serial"
 
 # Uninstall McAfee
 Write-Host "Uninstalling McAfee" -ForegroundColor Gray -BackgroundColor Blue
-winget uninstall McAfee.WPS -h --accept-source-agreements 
-winget uninstall McAfeeWPSSparsePackage_0j6k21vdgrmfw -h --accept-package-agreements --accept-source-agreements
-winget uninstall --id "{35ED3F83-4BDC-4c44-8EC6-6A8301C7413A}" -h --accept-package-agreements --accept-source-agreements
-winget uninstall --id "MSC" -h --accept-package-agreements --accept-source-agreements
+winget uninstall McAfee.WPS -h  
+winget uninstall McAfeeWPSSparsePackage_0j6k21vdgrmfw -h 
+winget uninstall --id "{35ED3F83-4BDC-4c44-8EC6-6A8301C7413A}" -h 
+winget uninstall --id "MSC" -h 
 
 # Install Chrome
 Write-Host "Installing Google Chrome" -ForegroundColor Gray -BackgroundColor Blue
