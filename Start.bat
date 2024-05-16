@@ -1,2 +1,2 @@
-Powershell.exe -executionpolicy remotesigned -File "./setup.ps1"
+Powershell.exe -executionpolicy Bypass -File "./setup.ps1"
 pause
