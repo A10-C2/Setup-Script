@@ -2,6 +2,8 @@
 $serial = wmic bios get serialnumber
 Write-Host "Serial Number: $serial"
 
+Get-TimeZone
+
 # Uninstall McAfee
 Write-Host "Uninstalling McAfee" -ForegroundColor Gray -BackgroundColor Blue
 winget uninstall McAfee.WPS -h  
