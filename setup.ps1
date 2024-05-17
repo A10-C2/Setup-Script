@@ -4,8 +4,6 @@ Write-Host "Serial Number: $serial"
 Write-Host "Setting Time Zone"
 Set-TimeZone -Id "Mountain Standard Time" -PassThru
 
-Get-TimeZone
-
 # Uninstall McAfee
 Write-Host "Uninstalling McAfee" -ForegroundColor Gray -BackgroundColor Blue
 winget uninstall McAfee.WPS -h  
