@@ -1,6 +1,8 @@
 # Automated Setup Script
 $serial = wmic bios get serialnumber
 Write-Host "Serial Number: $serial"
+Write-Host "Setting Time Zone"
+Set-TimeZone -Id "Mountain Standard Time" -PassThru
 
 Get-TimeZone
 
