@@ -4,8 +4,17 @@ Write-Host "Serial Number: $serial"
 Write-Host "Setting Time Zone"
 Set-TimeZone -Id "Mountain Standard Time" -PassThru
 
+# Get Bios Information
+Get-CimInstance -ClassName Win32_BIOS
+
+# Get System Information
+Get-CimInstance -ClassName Win32_ComputerSystem | Format-Table -Property Name, Domain, Model, Manufacturer -AutoSize -Wrap
+
+# Get Processor Information
+Get-CimInstance -ClassName Win32_Processor | Format-Table -Property Name, Manufacturer -AutoSize -Wrap
+
 # Uninstall McAfee
-Write-Host "Uninstalling McAfee" -ForegroundColor Gray -BackgroundColor Blue
+Write-Host "Uninstalling McAfee" -ForegroundColor Black -BackgroundColor Cyan
 winget uninstall McAfee.WPS -h  
 winget uninstall McAfeeWPSSparsePackage_0j6k21vdgrmfw -h 
 winget uninstall --id "{35ED3F83-4BDC-4c44-8EC6-6A8301C7413A}" -h 
