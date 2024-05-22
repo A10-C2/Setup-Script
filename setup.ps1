@@ -1,5 +1,38 @@
 # Automated Setup Script
 
+ # Check if winget is installed
+ function Install-Winget {
+    Write-Host "Checking if winget is installed..."
+
+    $wingetPath = (Get-Command winget -ErrorAction SilentlyContinue).Path
+
+    if ($wingetPath) {
+        Write-Host "winget is already installed"
+    } else {
+        Write-Host "winget is not installed. Installing winget..."
+
+        try {
+            $appInstallerUri = "https://aka.ms/getwinget"
+            $appInstallerPath = "$env:TEMP\AppInstaller.appxbundle"
+            Invoke-WebRequest -Uri $appInstallerUri -OutFile $appInstallerPath
+            Add-AppxPackage -Path $appInstallerPath
+            
+            # Verify Install
+            $wingetPath = (Get-Command winget -ErrorAction SilentlyContinue).Path 
+        }
+
+        if ($wingetPath) {
+            Write-Host "winget installed successfully."
+        } else {
+            Write-Host "Failed to install winget." -ForegroundColor Red
+            exit 1
+        }
+    } catch {
+        Write-Host "An error occurred while trying to install winget: $_" -ForegroundColor Red
+        exit 1
+    }
+}
+
 # Get Serial Number
 $serial = (Get-WmiObject -Class Win32_BIOS).serialnumber
 Write-Host "Serial Number: $serial"
