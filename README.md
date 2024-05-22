@@ -1,5 +1,5 @@
 # Windows 10/11 Software Script
-Before running script, update Windows app through the MS store. 
+Before running the script, update Windows apps through the MS Store. 
 - Set's timezone to Mountain Standard Time
 
 ## Removes 
