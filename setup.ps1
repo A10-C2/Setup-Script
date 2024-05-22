@@ -22,7 +22,7 @@ function Install-Winget {
         if ($wingetPath) {
             Write-Host "winget installed successfully."
         } else {
-            Write-Host "Failed to install winget." -ForegroundColor Red
+            Write-Host "Failed to install winget. Update throught the MS Store." -ForegroundColor Red
             exit 1
         }
     } catch {
