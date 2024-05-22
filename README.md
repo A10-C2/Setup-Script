@@ -16,7 +16,7 @@
 
 # How to use
 - Make sure the files are all saved in the same directory. Then run `Start.bat` (You don't need to run as admin)
-- If you the script is having issues running, update all apps through the MS Store
+- If the script is having issues running, update all apps through the MS Store
 
 ### TODO
 - Create installer loop so I can just pass a list
