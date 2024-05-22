@@ -15,6 +15,6 @@ Before running the script, update Windows apps through the MS Store.
 - Upgrades all installed packages
 
 # TODO
-- [] Create installer loop so I can just pass a list
-- [] Do the same thing but just to get rid of McAfee products
-- [] See if there's a way to pull bitlocker keys w/o activating it
+- Create installer loop so I can just pass a list
+- Do the same thing but just to get rid of McAfee products
+- See if there's a way to pull bitlocker keys w/o activating it
