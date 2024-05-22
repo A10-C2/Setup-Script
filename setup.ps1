@@ -1,8 +1,24 @@
 # Automated Setup Script
-$serial = wmic bios get serialnumber
+
+# Get Serial Number
+$serial = (Get-WmiObject -Class Win32_BIOS).serialnumber
 Write-Host "Serial Number: $serial"
-Write-Host "Setting Time Zone"
-Set-TimeZone -Id "Mountain Standard Time" -PassThru
+
+# Check if successful
+if ($serial) {
+    Write-Host "Serial number retrieved successfully."
+} else {
+    Write-Host "Failed to retrieve the serial number." -ForegroundColor Red
+}
+
+# Setting time zone
+try {
+    Write-Host "Setting Time Zone to Mountain Standard Time"
+    Set-TimeZone -Id "Mountain Standard Time" -PassThru
+    Write-Host "Time Zone set successfully."
+} catch {
+    Write-Host "Failed to set the time zone: $_" -ForegroundColor Red
+}
 
 # Get Bios Information
 Get-CimInstance -ClassName Win32_BIOS
