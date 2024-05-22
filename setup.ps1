@@ -1,9 +1,8 @@
 # Automated Setup Script
 
- # Check if winget is installed
- function Install-Winget {
+# Check if winget is installed
+function Install-Winget {
     Write-Host "Checking if winget is installed..."
-
     $wingetPath = (Get-Command winget -ErrorAction SilentlyContinue).Path
 
     if ($wingetPath) {
@@ -19,7 +18,6 @@
             
             # Verify Install
             $wingetPath = (Get-Command winget -ErrorAction SilentlyContinue).Path 
-        }
 
         if ($wingetPath) {
             Write-Host "winget installed successfully."
@@ -31,8 +29,8 @@
         Write-Host "An error occurred while trying to install winget: $_" -ForegroundColor Red
         exit 1
     }
+    }
 }
-
 # Get Serial Number
 $serial = (Get-WmiObject -Class Win32_BIOS).serialnumber
 Write-Host "Serial Number: $serial"
