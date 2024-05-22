@@ -1,6 +1,7 @@
 # Windows 10/11 Software Script
 Before running the script, update Windows apps through the MS Store. 
 - Set's timezone to Mountain Standard Time
+- Grabs Serial Number
 
 ## Removes 
 - McAfee Products
