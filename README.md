@@ -3,10 +3,10 @@
 - Set's timezone to Mountain Standard Time
 - Grabs Serial Number
 
-## Removes 
+### Removes 
 - McAfee Products
 
-## Installs
+### Installs
 - Google Chrome
 - Adobe Reader
 - Citrix Workspace
@@ -14,7 +14,11 @@
 - Office Suite
 - Upgrades all installed packages
 
-# TODO
+# How to use
+- Make sure the files are all saved in the same directory. Then run `Start.bat` (You don't need to run as admin)
+- If you the script is having issues running, update all apps through the MS Store
+
+### TODO
 - Create installer loop so I can just pass a list
 - Do the same thing but just to get rid of McAfee products
 - See if there's a way to pull bitlocker keys w/o activating it
