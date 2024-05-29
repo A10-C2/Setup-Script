@@ -31,6 +31,9 @@ function Install-Winget {
     }
     }
 }
+
+Install-Winget
+
 # Get Serial Number
 $serial = (Get-WmiObject -Class Win32_BIOS).serialnumber
 Write-Host "Serial Number: $serial" -ForegroundColor Cyan -BackgroundColor Black
