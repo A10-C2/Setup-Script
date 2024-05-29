@@ -6,9 +6,9 @@ function Install-Winget {
     $wingetPath = (Get-Command winget -ErrorAction SilentlyContinue).Path
 
     if ($wingetPath) {
-        Write-Host "winget is already installed"
+        Write-Host "winget is already installed" -ForegroundColor Green
     } else {
-        Write-Host "winget is not installed. Installing winget..."
+        Write-Warning "winget is not installed. Installing winget..."
 
         try {
             $appInstallerUri = "https://aka.ms/getwinget"
@@ -20,9 +20,9 @@ function Install-Winget {
             $wingetPath = (Get-Command winget -ErrorAction SilentlyContinue).Path 
 
         if ($wingetPath) {
-            Write-Host "winget installed successfully."
+            Write-Host "winget installed successfully." -ForegroundColor Green
         } else {
-            Write-Host "Failed to install winget. Update throught the MS Store." -ForegroundColor Red
+            Write-Warning "Failed to install winget. Update throught the MS Store."
             exit 1
         }
     } catch {
@@ -48,7 +48,7 @@ try {
     Set-TimeZone -Id "Mountain Standard Time" -PassThru
     Write-Host "Time Zone set successfully." -ForegroundColor Cyan
 } catch {
-    Write-Host "Failed to set the time zone: $_" -ForegroundColor Red
+    Write-Warning "Failed to set the time zone: $_"
 }
 
 # Get Bios Information
@@ -92,4 +92,4 @@ winget install Microsoft.Office -h --accept-package-agreements --disable-interac
 
 # Upgrade all installed pkgs
 winget install upgrade -h --accept-package-agreements --accept-source-agreements
-Write-Host "Finished" -ForegroundColor Gray -BackgroundColor Blue
+Write-Host "Finished" -ForegroundColor Green
