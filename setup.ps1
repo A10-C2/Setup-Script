@@ -36,11 +36,8 @@ Install-Winget
 
 # Get Serial Number
 $serial = (Get-WmiObject -Class Win32_BIOS).serialnumber
-Write-Host "Serial Number: $serial" -ForegroundColor Cyan -BackgroundColor Black
-
-# Check if successful
 if ($serial) {
-    Write-Host "Serial number retrieved successfully."
+    Write-Host "Serial Number: $serial" -ForegroundColor Cyan -BackgroundColor Black
 } else {
     Write-Host "Failed to retrieve the serial number." -ForegroundColor Red
 }
@@ -49,19 +46,25 @@ if ($serial) {
 try {
     Write-Host "Setting Time Zone to Mountain Standard Time"
     Set-TimeZone -Id "Mountain Standard Time" -PassThru
-    Write-Host "Time Zone set successfully."
+    Write-Host "Time Zone set successfully." -ForegroundColor Cyan
 } catch {
     Write-Host "Failed to set the time zone: $_" -ForegroundColor Red
 }
 
 # Get Bios Information
+Write-Host "BIOS Information" -ForegroundColor Cyan
 Get-CimInstance -ClassName Win32_BIOS
+Write-Host "--------------------------------------" -ForegroundColor Green
 
 # Get System Information
+Write-Host "System Information" -ForegroundColor Cyan
 Get-CimInstance -ClassName Win32_ComputerSystem | Format-Table -Property Name, Domain, Model, Manufacturer -AutoSize -Wrap
+Write-Host "--------------------------------------" -ForegroundColor Green
 
 # Get Processor Information
+Write-Host "Processor Information" -ForegroundColor Cyan
 Get-CimInstance -ClassName Win32_Processor | Format-Table -Property Name, Manufacturer -AutoSize -Wrap
+Write-Host "--------------------------------------" -ForegroundColor Green
 
 # Uninstall McAfee
 Write-Host "Uninstalling McAfee" -ForegroundColor Black -BackgroundColor Cyan
