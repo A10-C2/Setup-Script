@@ -101,6 +101,7 @@ function Install-Software {
 Install-Winget
 Set-Tz
 Get-Sys-Info
+Install-Software
 
 
 
