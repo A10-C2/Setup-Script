@@ -61,6 +61,7 @@ function Set-Tz {
         Write-Host "Setting Time Zone to Mountain Standard Time"
         Set-TimeZone -Id "Mountain Standard Time" -PassThru
         Write-Host "Time Zone set successfully." -ForegroundColor Cyan
+        W32tm /resync /force
     }
     catch {
         Write-Warning "Failed to set the time zone: $_"
