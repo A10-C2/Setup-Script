@@ -30,10 +30,11 @@ function Install-Winget {
 
 function Get-Sys-Info {
     Write-Host "===== System Information =====" -ForegroundColor DarkGreen
-# Get Serial Number
         $serial = (Get-WmiObject -Class Win32_BIOS).serialnumber
         if ($serial) {
-            Write-Host "Serial Number: $serial" -ForegroundColor Cyan 
+            Write-Host "--------------------------------------" -ForegroundColor Green
+                Write-Host "Serial Number: $serial" -ForegroundColor Cyan 
+                Write-Host "--------------------------------------" -ForegroundColor Green
         }
         else {
             Write-Host "Failed to retrieve the serial number." -ForegroundColor Red
