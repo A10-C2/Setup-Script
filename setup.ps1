@@ -32,24 +32,26 @@ function Get-Sys-Info {
     Write-Host "===== System Information =====" -ForegroundColor DarkGreen
     $serial = (Get-WmiObject -Class Win32_BIOS).serialnumber
     if ($serial) {
-        Write-Host "--------------------------------------" -ForegroundColor Green
+        Write-Host $("-" * 50)
         Write-Host "Serial Number: $serial" -ForegroundColor Cyan 
-        Write-Host "--------------------------------------" -ForegroundColor Green
+        Write-Host $("-" * 50)
     }
+
     else {
         Write-Host "Failed to retrieve the serial number." -ForegroundColor Red
     }
+
     Write-Host "BIOS Information" -ForegroundColor Cyan
     Get-CimInstance -ClassName Win32_BIOS
-    Write-Host "--------------------------------------" -ForegroundColor Green
+    Write-Host $("-" * 50)
 
     Write-Host "System Information" -ForegroundColor Cyan
     Get-CimInstance -ClassName Win32_ComputerSystem | Format-Table -Property Name, Domain, Model, Manufacturer -AutoSize -Wrap
-    Write-Host "--------------------------------------" -ForegroundColor Green
+    Write-Host $("-" * 50)
 
     Write-Host "Processor Information" -ForegroundColor Cyan
     Get-CimInstance -ClassName Win32_Processor | Format-Table -Property Name, Manufacturer -AutoSize -Wrap
-    Write-Host "--------------------------------------" -ForegroundColor Green
+    Write-Host $("-" * 50)
 }
 
 function Set-Tz {
@@ -66,7 +68,9 @@ function Set-Tz {
 
 function Install-Software {
     Write-Host "===== Installing Software =====" -ForegroundColor DarkBlue
+
     # Uninstall McAfee
+    Write-Host $("-" * 50)
     try {
         Write-Host "Uninstalling McAfee" -ForegroundColor Black -BackgroundColor Cyan
         winget uninstall McAfee.WPS -h  
@@ -80,6 +84,7 @@ function Install-Software {
     }
 
     # Install Chrome
+    Write-Host $("-" * 50)
     try {
         Write-Host "Installing Google Chrome" -ForegroundColor Black -BackgroundColor Cyan
         winget install Google.Chrome -h --disable-interactivity --accept-package-agreements --accept-source-agreements
@@ -90,6 +95,7 @@ function Install-Software {
     }
 
     # Install Adobe Reader
+    Write-Host $("-" * 50)
     try {
         Write-Host "Installing Adobe Reader" -ForegroundColor Black -BackgroundColor Cyan
         winget install Adobe.Acrobat.Reader.64-bit -h --accept-package-agreements --accept-source-agreements
@@ -100,6 +106,7 @@ function Install-Software {
     }
 
     # Install Citrix
+    Write-Host $("-" * 50)
     try {
         Write-Host install "Citrix Workspace" -ForegroundColor Black -BackgroundColor Cyan
         winget install XPFCG3278HX4X9 -h --accept-package-agreements --accept-source-agreements
@@ -110,6 +117,7 @@ function Install-Software {
     }
 
     # Install O365
+    Write-Host $("-" * 50)
     try {
         Write-Host install "Installing Office 365" -ForegroundColor Black -BackgroundColor Cyan
         winget install 9WZDNCRD29V9 -h --accept-package-agreements --accept-source-agreements
@@ -128,6 +136,3 @@ Install-Winget
 Set-Tz
 Get-Sys-Info
 Install-Software
-
-
-
