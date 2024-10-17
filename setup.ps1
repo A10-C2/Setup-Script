@@ -67,7 +67,7 @@ function Set-Tz {
 }
 
 function Install-Software {
-    Write-Host "===== Installing Software =====" -ForegroundColor DarkBlue
+    Write-Host "===== Uninstalling Software =====" -ForegroundColor DarkBlue
 
     # Uninstall McAfee
     Write-Host $("-" * 50)
@@ -82,6 +82,8 @@ function Install-Software {
         Write-Warning "Failed"
         Write-Host "Failed to uninstall McAfee" -Foregroundcolor Red
     }
+
+    Write-Host "===== Installing Software =====" -ForegroundColor DarkBlue
 
     # Install Chrome
     Write-Host $("-" * 50)
