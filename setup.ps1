@@ -77,6 +77,7 @@ function Install-Software {
         winget uninstall McAfeeWPSSparsePackage_0j6k21vdgrmfw -h 
         winget uninstall --id "{35ED3F83-4BDC-4c44-8EC6-6A8301C7413A}" -h 
         winget uninstall --id "MSC" -h 
+        Write-Host "Unistalled: McAfee Products" -ForegroundColor DarkGreen
     }
     catch {
         Write-Warning "Failed"
@@ -90,6 +91,7 @@ function Install-Software {
     try {
         Write-Host "Installing Google Chrome" -ForegroundColor Black -BackgroundColor Cyan
         winget install Google.Chrome -h --disable-interactivity --accept-package-agreements --accept-source-agreements
+        Write-Host "Installed: Google Chrome" -ForegroundColor DarkGreen
     }
     catch {
         Write-Warning 'Failed'
@@ -101,6 +103,7 @@ function Install-Software {
     try {
         Write-Host "Installing Adobe Reader" -ForegroundColor Black -BackgroundColor Cyan
         winget install Adobe.Acrobat.Reader.64-bit -h --accept-package-agreements --accept-source-agreements
+        Write-Host "Installed: Adobe Reader" -ForegroundColor DarkGreen
     }
     catch {
         Write-Warning 'Failed'
@@ -112,6 +115,7 @@ function Install-Software {
     try {
         Write-Host install "Citrix Workspace" -ForegroundColor Black -BackgroundColor Cyan
         winget install XPFCG3278HX4X9 -h --accept-package-agreements --accept-source-agreements
+        Write-Host "Installed: Citrix Workspace" -ForegroundColor DarkGreen
     }
     catch {
         Write-Warning 'Failed'
@@ -124,9 +128,8 @@ function Install-Software {
         Write-Host install "Installing Office 365" -ForegroundColor Black -BackgroundColor Cyan
         winget install 9WZDNCRD29V9 -h --accept-package-agreements --accept-source-agreements
         winget install Microsoft.Office -h --accept-package-agreements --disable-interactivity 
-
         winget install upgrade -h --accept-package-agreements --accept-source-agreements
-        Write-Host "Finished" -ForegroundColor Green
+        Write-Host "Installed: Office 365" -ForegroundColor DarkGreen
     }
     catch {
         Write-Warning 'Failed'
